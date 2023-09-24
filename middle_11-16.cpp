@@ -67,7 +67,18 @@ long long itc_bin_num(long long number) {
 
 long long itc_oct_num(long long number){
 
-    cout << oct << number;
+    long long oct = 0;
+    int x, n = 1;
+
+    while (number > 0) {
+
+        x = number % 8;
+        oct += x * n;
+        n *= 10;
+        number /= 8;
+
+    }
+    return oct;
 
 }
 
