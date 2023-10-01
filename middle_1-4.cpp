@@ -34,25 +34,25 @@ int itc_len_num(long long number){
 
 }
 
-int itc_sum_num(long long number){
+int itc_sum_num(long long number) {
 
-    int x = 0;
+    int n = 0;
 
-    while (number > 0){
+    while (number != 0) {
 
-        x += number % 10;
+        n += number % 10;
         number /= 10;
 
     }
-    return x;
+    return n;
 
 }
 
 long long itc_multi_num(long long number){
 
-    int x = 1;
+    long long x = 1;
 
-    while (number > 0){
+    while (number != 0){
 
         x *= number %  10;
         number /= 10;

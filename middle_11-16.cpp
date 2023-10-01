@@ -3,65 +3,95 @@
 
 using namespace std;
 
-int itc_second_max_num(long long number){
+int itc_second_max_num(long long number) {
 
-    if (number < 10){
+    if (number < 10) {
 
         return -1;
 
     }
-    int m1 = -1, m2 = -1;
+
+    int n1 = -1, n2 = -1;
+
     while (number > 0) {
 
         int x = number % 10;
+        if (x > n1) {
 
-        if (x > m1) {
-
-            m2 = m1;
-            m1 = x;
+            n2 = n1;
+            n1 = x;
 
         }
-        else if(x > m2 && x < m1){
+        else if (x > n2 && x < n1) {
 
-            m2 = x;
+            n2 = x;
 
         }
         number /= 10;
+
     }
-    return m2;
+    return n2;
+
 }
 
-int itc_second_simple_max_num(long long number){
+int itc_second_simple_max_num(long long number) {
 
-    itc_second_max_num(number);
-    itc_max_num(number);
+    if (number < 10) {
 
-    if (itc_second_max_num(number) != itc_max_num(number)){
+        return -1;
 
-        return itc_second_max_num(number);
+    }
+
+    int n1 = -1, n2 = -1;
+
+    while (number > 0) {
+
+        int x = number % 10;
+        if (x > n1) {
+
+            n2 = n1;
+            n1 = x;
+
+        }
+        else if (x > n2 && x < n1) {
+
+            n2 = x;
+
+        }
+        number /= 10;
+
+    }
+    if (n1 == n2) {
+
+        return -1;
 
     }
     else {
 
-        return -1;
+        return n;
 
     }
 }
 
 long long itc_bin_num(long long number) {
 
-    long long bin = 0;
-    int x, n = 1;
+    if (number == 0) {
 
-    while (number > 0) {
-
-        x = number % 2;
-        bin += x * n;
-        n *= 10;
-        number /= 2;
+        return 0;
 
     }
-    return bin;
+
+    long long bin = 0;
+    int n = 1;
+
+    while (number != 0) {
+
+        bin += (number % 2) * n;
+        number /= 2;
+        n *= 10;
+
+    }
+    return binary;
 
 }
 
